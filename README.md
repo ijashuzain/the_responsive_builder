@@ -1,16 +1,16 @@
-# Flutter Responsive Builder
+# The Responsive Builder
 
 This package provides a set of utilities to aid in building responsive Flutter applications that adapt to different screen sizes and orientations.
 
 ### 1. Setup
 
-Firstly, copy the `Responsive` folder to core of your project.
+Firstly, add package to `pubspec.yaml`.
 
-Then, wrap your main `MaterialApp` widget with the `ResponsiveBuilder` widget:
+Then, wrap your main `MaterialApp` widget with the `TheResponsiveBuilder`
 
 ```dart
 void main() => runApp(
-  ResponsiveBuilder(
+  TheResponsiveBuilder(
     builder: (context, orientation, screenType) {
       return MaterialApp(
         //... your other MaterialApp properties
