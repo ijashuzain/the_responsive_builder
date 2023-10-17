@@ -1,39 +1,63 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Flutter Responsive Builder
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+This package provides a set of utilities to aid in building responsive Flutter applications that adapt to different screen sizes and orientations.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+### 1. Setup
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Firstly, copy the `Responsive` folder to core of your project.
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Then, wrap your main `MaterialApp` widget with the `ResponsiveBuilder` widget:
 
 ```dart
-const like = 'sample';
+void main() => runApp(
+  ResponsiveBuilder(
+    builder: (context, orientation, screenType) {
+      return MaterialApp(
+        //... your other MaterialApp properties
+      );
+    },
+  ),
+);
 ```
 
-## Additional information
+### 2. Usage of extensions
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+With the utilities set up, you can easily use the extensions provided:
+
+
+#### - Height & Width
+```dart
+// This will set the height to 20% of the screen height
+Container(height: 20.h, ...);
+
+// This will set the width to 50% of the screen width
+Container(width: 50.w, ...);
+```
+
+
+#### - Density Pixels & Scaled Pixels
+```dart
+// This uses a logarithmic formula to scale UI elements based on screen size and pixel density.
+TextStyle(fontSize: 16.dp, ...);
+
+// This scales the text size based on the user's font size settings.
+TextStyle(fontSize: 16.sp, ...);
+```
+
+
+#### - Screen Type & Orientation
+```dart
+if (context.screenType == ScreenType.mobile) {
+  // Build UI for mobile
+} else {
+  // Build UI for tablet
+}
+
+if (context.orientation == Orientation.portrait) {
+  // Build UI for portrait mode
+} else {
+  // Build UI for landscape mode
+}
+```
+
+

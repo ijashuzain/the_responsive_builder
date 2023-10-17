@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'extension.dart';
+import 'package:the_responsive_builder/the_responsive_builder.dart';
 
 /// Enumeration to define the two types of screen sizes we want to cater to.
 enum ScreenType { mobile, tablet }
 
-class ResponsiveHelper {
+class TheResponsiveHelper {
   /// These properties define the size and characteristics of the current screen.
   static late BoxConstraints boxConstraints;
   static late Orientation orientation;
