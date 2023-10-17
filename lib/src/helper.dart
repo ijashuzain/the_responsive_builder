@@ -32,9 +32,6 @@ class TheResponsiveHelper {
   /// Get the text scale factor, considering user preferences.
   static double get textScaleFactor => WidgetsBinding.instance.platformDispatcher.textScaleFactor;
 
-  /// Fetch the safe area insets, accounting for notches, cutouts, etc.
-  static EdgeInsets get safeAreaInsets => MediaQueryData.fromWindow(WidgetsBinding.instance.window).padding;
-
   /// Determine the type of screen (mobile or tablet) based on width, height, and orientation.
   static void setScreenSize(BoxConstraints constraints, Orientation currentOrientation, [double mobileBreakpoint = 600.0]) {
     boxConstraints = constraints;

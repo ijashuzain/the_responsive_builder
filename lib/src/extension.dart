@@ -2,10 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'package:the_responsive_builder/the_responsive_builder.dart';
+import 'helper.dart';
 
 /// This extension is added to the 'num' data type to help with responsive measurements.
-extension ResponsiveExtension on num {
+extension TheResponsiveExtension on num {
   /// Returns the adaptive height. It multiplies the provided number (this)
   /// with the actual screen height, then divides by 100 to get a percentage value.
   double get h => this * TheResponsiveHelper.height / 100;
@@ -25,7 +25,7 @@ extension ResponsiveExtension on num {
 
 /// This extension is added to the 'BuildContext' to provide easy access to properties
 /// related to the screen type and orientation.
-extension ResponsiveScreenTypeExtension on BuildContext {
+extension TheResponsiveScreenTypeExtension on BuildContext {
   /// Provides a quick way to get the current screen type (mobile or tablet) using the ResponsiveHelper.
   ScreenType get screenType => TheResponsiveHelper.screenType;
 

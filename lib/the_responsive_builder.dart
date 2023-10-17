@@ -1,7 +1,5 @@
 library the_responsive_builder;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/responsive_builder.dart';
+export 'src/helper.dart';
+export 'src/extension.dart';
