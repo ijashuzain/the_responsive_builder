@@ -1,4 +1,3 @@
-## 1.0.1
+## 1.0.2
 
-* Corrections on implementation.
-* Performance improvements.
+* Text scale factor calculation updated

@@ -20,7 +20,7 @@ extension TheResponsiveExtension on num {
 
   /// Returns the adaptive scalable pixel for text. This takes the 'dp' value and scales it
   /// using the textScaleFactor, which respects the user's font size settings.
-  double get sp => dp * TheResponsiveHelper.textScaleFactor;
+  double get sp => TheResponsiveHelper.scaledTextSize(double.parse('$this'));
 }
 
 /// This extension is added to the 'BuildContext' to provide easy access to properties
