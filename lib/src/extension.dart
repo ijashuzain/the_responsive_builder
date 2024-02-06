@@ -32,3 +32,15 @@ extension TheResponsiveScreenTypeExtension on BuildContext {
   /// Provides a quick way to get the current orientation (portrait or landscape) using the ResponsiveHelper.
   Orientation get orientation => TheResponsiveHelper.orientation;
 }
+
+/// This extension is added to the 'BuildContext' data type to help with set lock on specific orientation.
+extension TheResponsiveOrientationLockExtension on BuildContext {
+  /// Locks the orientation to portrait mode.
+  void lockToPortrait() => TheResponsiveHelper.lockToPortrait(this);
+
+  /// Locks the orientation to landscape mode.
+  void lockToLandscape() => TheResponsiveHelper.lockToLandscape(this);
+
+  /// Unlocks the orientation to allow both portrait and landscape modes.
+  void unlockOrientation() => TheResponsiveHelper.unlockOrientation(this);
+}

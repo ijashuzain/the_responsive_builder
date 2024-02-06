@@ -61,3 +61,16 @@ if (context.orientation == Orientation.portrait) {
 ```
 
 
+#### - Lock & Unlock Screen Orientation
+```dart
+// Lock screen orientation to Portrait mode
+context.lockToPortrait();
+
+// Lock screen orientation to Landscape mode
+context.lockToLandscape();
+
+// Unlock screen orientation to automatic mode
+context.unlockOrientation();
+```
+
+

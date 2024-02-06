@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:the_responsive_builder/the_responsive_builder.dart';
 
 /// Enumeration to define the two types of screen sizes we want to cater to.
@@ -33,7 +34,7 @@ class TheResponsiveHelper {
   static double get textScaleFactor => WidgetsBinding.instance.platformDispatcher.textScaleFactor;
 
   /// Determine the type of screen (mobile or tablet) based on width, height, and orientation.
-  static void setScreenSize(BoxConstraints constraints, Orientation currentOrientation, [double mobileBreakpoint = 600.0]) {
+  static void setScreenSize(BoxConstraints constraints, Orientation currentOrientation, double mobileBreakpoint) {
     boxConstraints = constraints;
     orientation = currentOrientation;
 
@@ -50,6 +51,21 @@ class TheResponsiveHelper {
   /// Calculate the text size scaled based on the horizontal scaling factor and user's text preferences.
   static double scaledTextSize(double size) {
     return size * horizontalScaling * textScaleFactor;
+  }
+
+  /// Lock the orientation to portrait mode.
+  static void lockToPortrait(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  }
+
+  /// Lock the orientation to landscape mode.
+  static void lockToLandscape(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+  }
+
+  /// Unlock the orientation to allow both portrait and landscape modes.
+  static void unlockOrientation(BuildContext context) {
+    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
   }
 }
 

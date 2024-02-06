@@ -1,3 +1,4 @@
-## 1.0.2
+## 1.0.3
 
-* Text scale factor calculation updated
+* Added orientation lock extension
+* Made breakpoint as optional
