@@ -16,7 +16,13 @@ extension TheResponsiveExtension on num {
 
   /// Returns the adaptive density pixel. The formula uses logarithms to calculate a value based on
   /// the width, height, and devicePixelRatio. The magic number '18' is used for normalization.
-  double get dp => (math.log(TheResponsiveHelper.width * TheResponsiveHelper.height * TheResponsiveHelper.devicePixelRatio) / math.log(2) / 18 * this).abs();
+  double get dp => (math.log(TheResponsiveHelper.width *
+              TheResponsiveHelper.height *
+              TheResponsiveHelper.devicePixelRatio) /
+          math.log(2) /
+          18 *
+          this)
+      .abs();
 
   /// Returns the adaptive scalable pixel for text. This takes the 'dp' value and scales it
   /// using the textScaleFactor, which respects the user's font size settings.

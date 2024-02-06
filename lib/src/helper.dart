@@ -25,23 +25,27 @@ class TheResponsiveHelper {
   static double get aspectRatio => width / height;
 
   /// Get the device's pixel density.
-  static double get devicePixelRatio => WidgetsBinding.instance.platformDispatcher.views.first.devicePixelRatio;
+  static double get devicePixelRatio =>
+      WidgetsBinding.instance.platformDispatcher.views.first.devicePixelRatio;
 
   /// Calculate screen density using devicePixelRatio and aspectRatio.
   static double get screenDensity => devicePixelRatio * aspectRatio;
 
   /// Get the text scale factor, considering user preferences.
-  static double get textScaleFactor => WidgetsBinding.instance.platformDispatcher.textScaleFactor;
+  static double get textScaleFactor =>
+      WidgetsBinding.instance.platformDispatcher.textScaleFactor;
 
   /// Determine the type of screen (mobile or tablet) based on width, height, and orientation.
-  static void setScreenSize(BoxConstraints constraints, Orientation currentOrientation, double mobileBreakpoint) {
+  static void setScreenSize(BoxConstraints constraints,
+      Orientation currentOrientation, double mobileBreakpoint) {
     boxConstraints = constraints;
     orientation = currentOrientation;
 
     width = boxConstraints.maxWidth;
     height = boxConstraints.maxHeight;
 
-    if ((orientation == Orientation.portrait && width < mobileBreakpoint) || (orientation == Orientation.landscape && height < mobileBreakpoint)) {
+    if ((orientation == Orientation.portrait && width < mobileBreakpoint) ||
+        (orientation == Orientation.landscape && height < mobileBreakpoint)) {
       screenType = ScreenType.mobile;
     } else {
       screenType = ScreenType.tablet;
@@ -55,12 +59,14 @@ class TheResponsiveHelper {
 
   /// Lock the orientation to portrait mode.
   static void lockToPortrait(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
 
   /// Lock the orientation to landscape mode.
   static void lockToLandscape(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
   }
 
   /// Unlock the orientation to allow both portrait and landscape modes.

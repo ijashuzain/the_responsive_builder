@@ -32,11 +32,13 @@ class TheResponsiveBuilder extends StatelessWidget {
         return OrientationBuilder(
           builder: (context, orientation) {
             /// Before building the responsive UI, we set the screen size and orientation in our helper class.
-            TheResponsiveHelper.setScreenSize(constraints, orientation, breakPoint);
+            TheResponsiveHelper.setScreenSize(
+                constraints, orientation, breakPoint);
 
             /// Now, using the provided builder function, we return the appropriate widget based on the current screen properties.
             /// This builder function will likely contain the responsive logic, deciding how the UI should look based on the screen type.
-            return builder(context, orientation, TheResponsiveHelper.screenType);
+            return builder(
+                context, orientation, TheResponsiveHelper.screenType);
           },
         );
       },
