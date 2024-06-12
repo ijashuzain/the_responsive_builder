@@ -32,8 +32,8 @@ class TheResponsiveHelper {
   static double get screenDensity => devicePixelRatio * aspectRatio;
 
   /// Get the text scale factor, considering user preferences.
-  static double get textScaleFactor =>
-      WidgetsBinding.instance.platformDispatcher.textScaleFactor;
+  // static double get textScaleFactor =>
+  //     WidgetsBinding.instance.platformDispatcher.textScaleFactor;
 
   /// Determine the type of screen (mobile or tablet) based on width, height, and orientation.
   static void setScreenSize(BoxConstraints constraints,
@@ -54,7 +54,8 @@ class TheResponsiveHelper {
 
   /// Calculate the text size scaled based on the horizontal scaling factor and user's text preferences.
   static double scaledTextSize(double size) {
-    return size * horizontalScaling * textScaleFactor;
+    // return size * horizontalScaling * textScaleFactor;
+    return size * horizontalScaling;
   }
 
   /// Lock the orientation to portrait mode.
