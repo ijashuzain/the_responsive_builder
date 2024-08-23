@@ -1,4 +1,5 @@
-## 1.0.3
+## 1.0.4
 
-* Added orientation lock extension
-* Made breakpoint as optional
+* Density pixel calculation updated
+* Added Text Scale Factor as choice
+* Added new Responsive Widget

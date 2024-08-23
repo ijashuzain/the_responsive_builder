@@ -13,15 +13,23 @@ class TheResponsiveBuilder extends StatelessWidget {
   /// Constructor to initialize the ResponsiveBuilder with a required builder function.
   const TheResponsiveBuilder({
     Key? key,
-    this.breakPoint = 600.0,
+    this.mobileBreakPoint = 600.0,
+    this.enableTextScaleFactor = true,
     required this.builder,
+    this.baselineWidth = 375.0,
+    this.baselineHeight = 667.0,
   }) : super(key: key);
 
   /// The builder function which will be used to create the responsive UI.
   final ResponsiveBuild builder;
 
+  final bool enableTextScaleFactor;
+
+  final double baselineWidth;
+  final double baselineHeight;
+
   /// The breakPoint is the width at which the UI should switch from mobile to tablet mode.
-  final double breakPoint;
+  final double mobileBreakPoint;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +41,13 @@ class TheResponsiveBuilder extends StatelessWidget {
           builder: (context, orientation) {
             /// Before building the responsive UI, we set the screen size and orientation in our helper class.
             TheResponsiveHelper.setScreenSize(
-                constraints, orientation, breakPoint);
+              constraints: constraints,
+              currentOrientation: orientation,
+              mobileBreakpoint: mobileBreakPoint,
+              enableTextScaleFactor: enableTextScaleFactor,
+              baselineWidth: baselineWidth,
+              baselineHeight: baselineHeight,
+            );
 
             /// Now, using the provided builder function, we return the appropriate widget based on the current screen properties.
             /// This builder function will likely contain the responsive logic, deciding how the UI should look based on the screen type.

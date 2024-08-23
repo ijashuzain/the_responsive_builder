@@ -14,15 +14,16 @@ extension TheResponsiveExtension on num {
   /// with the actual screen width, then divides by 100 to get a percentage value.
   double get w => this * TheResponsiveHelper.width / 100;
 
-  /// Returns the adaptive density pixel. The formula uses logarithms to calculate a value based on
-  /// the width, height, and devicePixelRatio. The magic number '18' is used for normalization.
-  double get dp => (math.log(TheResponsiveHelper.width *
-              TheResponsiveHelper.height *
-              TheResponsiveHelper.devicePixelRatio) /
-          math.log(2) /
-          18 *
-          this)
-      .abs();
+  /// Returns the adaptive density pixel. This calculation uses the scale factors
+  /// from TheResponsiveHelper to provide consistency with other responsive elements.
+  double get dp {
+    // Use the minimum of horizontal and vertical scaling to ensure consistency
+    double scaleFactor = math.min(TheResponsiveHelper.horizontalScaling,
+        TheResponsiveHelper.verticalScaling);
+
+    // Apply the scaling factor with a slight dampening effect
+    return (this * math.pow(scaleFactor, 0.5)).round().toDouble();
+  }
 
   /// Returns the adaptive scalable pixel for text. This takes the 'dp' value and scales it
   /// using the textScaleFactor, which respects the user's font size settings.

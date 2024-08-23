@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:the_responsive_builder/the_responsive_builder.dart';
@@ -14,12 +16,16 @@ class TheResponsiveHelper {
   static late double width;
 
   /// Reference baseline values for width and height.
-  static const double baselineWidth = 375.0;
-  static const double baselineHeight = 667.0;
+  static double baselineWidth = 375.0;
+  static double baselineHeight = 667.0;
+
+  static bool enableScaleFactor = true;
 
   /// Get scaling factors for width and height compared to the baseline.
   static double get horizontalScaling => width / baselineWidth;
   static double get verticalScaling => height / baselineHeight;
+
+  static bool get enableTextScaleFactor => enableScaleFactor;
 
   /// Get the aspect ratio of the current screen.
   static double get aspectRatio => width / height;
@@ -36,11 +42,19 @@ class TheResponsiveHelper {
       WidgetsBinding.instance.platformDispatcher.textScaleFactor;
 
   /// Determine the type of screen (mobile or tablet) based on width, height, and orientation.
-  static void setScreenSize(BoxConstraints constraints,
-      Orientation currentOrientation, double mobileBreakpoint) {
+  static void setScreenSize({
+    required BoxConstraints constraints,
+    required Orientation currentOrientation,
+    required double mobileBreakpoint,
+    required bool enableTextScaleFactor,
+    required double baselineWidth,
+    required double baselineHeight,
+  }) {
     boxConstraints = constraints;
     orientation = currentOrientation;
-
+    enableScaleFactor = enableTextScaleFactor;
+    baselineWidth = baselineWidth;
+    baselineHeight = baselineHeight;
     width = boxConstraints.maxWidth;
     height = boxConstraints.maxHeight;
 
@@ -54,7 +68,9 @@ class TheResponsiveHelper {
 
   /// Calculate the text size scaled based on the horizontal scaling factor and user's text preferences.
   static double scaledTextSize(double size) {
-    return size * horizontalScaling * textScaleFactor;
+    return size *
+        min(horizontalScaling, verticalScaling) *
+        (enableScaleFactor ? textScaleFactor : 1);
   }
 
   /// Lock the orientation to portrait mode.
