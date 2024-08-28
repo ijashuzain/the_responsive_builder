@@ -1,5 +1,3 @@
-## 1.0.4
+## 1.0.5
 
-* Density pixel calculation updated
-* Added Text Scale Factor as choice
-* Added new Responsive Widget
+* Text scale factor calculation updated

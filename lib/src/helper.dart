@@ -16,14 +16,14 @@ class TheResponsiveHelper {
   static late double width;
 
   /// Reference baseline values for width and height.
-  static double baselineWidth = 375.0;
-  static double baselineHeight = 667.0;
+  static double baselineWidth = 1;
+  static double baselineHeight = 1;
 
   static bool enableScaleFactor = true;
 
   /// Get scaling factors for width and height compared to the baseline.
-  static double get horizontalScaling => width / baselineWidth;
-  static double get verticalScaling => height / baselineHeight;
+  static double get horizontalScaling => min(width / baselineWidth, 1.0);
+  static double get verticalScaling => min(height / baselineHeight, 1.0);
 
   static bool get enableTextScaleFactor => enableScaleFactor;
 
