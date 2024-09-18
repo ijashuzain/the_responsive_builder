@@ -50,7 +50,7 @@ class TheResponsiveGridView extends StatelessWidget {
 
   // Constructor for creating a ResponsiveGridView with a list of children
   const TheResponsiveGridView({
-    Key? key,
+    super.key,
     required this.childWidth,
     required this.childHeight,
     required this.children,
@@ -70,12 +70,11 @@ class TheResponsiveGridView extends StatelessWidget {
     this.restorationId,
     this.clipBehavior = Clip.hardEdge,
   }) : itemCount = null,
-       itemBuilder = null,
-       super(key: key);
+       itemBuilder = null;
 
   // Constructor for creating a ResponsiveGridView with a builder function
   const TheResponsiveGridView.builder({
-    Key? key,
+    super.key,
     required this.childWidth,
     required this.childHeight,
     required this.itemCount,
@@ -95,8 +94,7 @@ class TheResponsiveGridView extends StatelessWidget {
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.restorationId,
     this.clipBehavior = Clip.hardEdge,
-  }) : children = null,
-       super(key: key);
+  }) : children = null;
 
   @override
   Widget build(BuildContext context) {
@@ -131,8 +129,8 @@ class TheResponsiveGridView extends StatelessWidget {
         final SliverGridDelegate gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: effectiveColumnCount,
           childAspectRatio: childAspectRatio,
-          crossAxisSpacing: actualSpacing,
-          mainAxisSpacing: actualSpacing,
+          crossAxisSpacing: minSpacing,
+          mainAxisSpacing: minSpacing,
         );
 
         // Build the appropriate GridView based on the provided constructor

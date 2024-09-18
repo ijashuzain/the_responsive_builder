@@ -12,13 +12,13 @@ typedef ResponsiveBuild = Widget Function(
 class TheResponsiveBuilder extends StatelessWidget {
   /// Constructor to initialize the ResponsiveBuilder with a required builder function.
   const TheResponsiveBuilder({
-    Key? key,
+    super.key,
     this.mobileBreakPoint = 600.0,
     this.enableTextScaleFactor = true,
     required this.builder,
     this.baselineWidth = 375.0,
     this.baselineHeight = 667.0,
-  }) : super(key: key);
+  });
 
   /// The builder function which will be used to create the responsive UI.
   final ResponsiveBuild builder;
