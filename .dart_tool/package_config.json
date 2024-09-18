@@ -45,9 +45,9 @@
     },
     {
       "name": "flutter_lints",
-      "rootUri": "file:///Users/Apple/.pub-cache/hosted/pub.dev/flutter_lints-2.0.3",
+      "rootUri": "file:///Users/Apple/.pub-cache/hosted/pub.dev/flutter_lints-4.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.1"
     },
     {
       "name": "flutter_test",
@@ -75,9 +75,9 @@
     },
     {
       "name": "lints",
-      "rootUri": "file:///Users/Apple/.pub-cache/hosted/pub.dev/lints-2.1.1",
+      "rootUri": "file:///Users/Apple/.pub-cache/hosted/pub.dev/lints-4.0.0",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.1"
     },
     {
       "name": "matcher",
@@ -161,10 +161,10 @@
       "name": "the_responsive_builder",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-09-18T06:44:45.421954Z",
+  "generated": "2024-09-18T06:49:39.306285Z",
   "generator": "pub",
   "generatorVersion": "3.5.1",
   "flutterRoot": "file:///Users/Apple/fvm/versions/3.24.1",
