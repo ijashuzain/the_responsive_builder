@@ -1,3 +1,3 @@
-## 1.0.5
+## 1.0.6
 
-* Text scale factor calculation updated
+* Added responsive GridView widget

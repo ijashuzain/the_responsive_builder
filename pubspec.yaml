@@ -1,6 +1,6 @@
 name: the_responsive_builder
 description: This flutter package provides a set of utilities to aid in building responsive Flutter applications.
-version: 1.0.5
+version: 1.0.6
 repository: https://github.com/ijashuzain/the_responsive_builder
 
 environment:
