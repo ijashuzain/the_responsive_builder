@@ -161,10 +161,10 @@
       "name": "the_responsive_builder",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-09-18T06:49:39.306285Z",
+  "generated": "2024-09-18T09:18:19.318079Z",
   "generator": "pub",
   "generatorVersion": "3.5.1",
   "flutterRoot": "file:///Users/Apple/fvm/versions/3.24.1",
