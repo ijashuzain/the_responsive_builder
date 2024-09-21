@@ -16,8 +16,8 @@ class TheResponsiveHelper {
   static late double width;
 
   /// Reference baseline values for width and height.
-  static double baselineWidth = 1;
-  static double baselineHeight = 1;
+  static late double baselineWidth;
+  static late double baselineHeight;
 
   static bool enableScaleFactor = true;
 
@@ -47,14 +47,15 @@ class TheResponsiveHelper {
     required Orientation currentOrientation,
     required double mobileBreakpoint,
     required bool enableTextScaleFactor,
-    required double baselineWidth,
-    required double baselineHeight,
+    required double baseWidth,
+    required double baseHeight,
   }) {
+
     boxConstraints = constraints;
     orientation = currentOrientation;
     enableScaleFactor = enableTextScaleFactor;
-    baselineWidth = baselineWidth;
-    baselineHeight = baselineHeight;
+    baselineWidth = baseWidth;
+    baselineHeight = baseHeight;
     width = boxConstraints.maxWidth;
     height = boxConstraints.maxHeight;
 
@@ -64,13 +65,37 @@ class TheResponsiveHelper {
     } else {
       screenType = ScreenType.tablet;
     }
+
+    debugPrint("=============================================");
+    debugPrint("         The Responsive Builder              ");
+    debugPrint("=============================================");
+    debugPrint("Scale Factor : $textScaleFactor");
+    debugPrint("Device Pixel Ratio : $devicePixelRatio");
+    debugPrint("Horizontal scaling : $horizontalScaling");
+    debugPrint("Vertical scaling : $verticalScaling");
+    debugPrint("Screen Density : $screenDensity");
+    debugPrint("Screen Aspect Ratio : $aspectRatio");
+    debugPrint("Baseline Width : $baselineWidth");
+    debugPrint("Baseline Height : $baselineHeight");
+    debugPrint("Screen Width : $width");
+    debugPrint("Screen Height : $height");
+    debugPrint("Screen Type : $screenType");
+    debugPrint("=============================================");
   }
 
   /// Calculate the text size scaled based on the horizontal scaling factor and user's text preferences.
+  // static double scaledTextSize(double size) {
+  //   return size *
+  //       min(horizontalScaling, verticalScaling) *
+  //       (enableScaleFactor ? textScaleFactor : 1);
+  // }
   static double scaledTextSize(double size) {
-    return size *
-        min(horizontalScaling, verticalScaling) *
-        (enableScaleFactor ? textScaleFactor : 1);
+    double scaleFactor = min(horizontalScaling, verticalScaling);
+    
+    // Ensure the scale factor doesn't exceed 1.0
+    scaleFactor = min(scaleFactor, 1.0);
+    
+    return size * scaleFactor * (enableScaleFactor ? textScaleFactor : 1);
   }
 
   /// Lock the orientation to portrait mode.

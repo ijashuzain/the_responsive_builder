@@ -45,8 +45,8 @@ class TheResponsiveBuilder extends StatelessWidget {
               currentOrientation: orientation,
               mobileBreakpoint: mobileBreakPoint,
               enableTextScaleFactor: enableTextScaleFactor,
-              baselineWidth: baselineWidth,
-              baselineHeight: baselineHeight,
+              baseWidth: baselineWidth,
+              baseHeight: baselineHeight,
             );
 
             /// Now, using the provided builder function, we return the appropriate widget based on the current screen properties.
