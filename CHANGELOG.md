@@ -1,3 +1,3 @@
-## 1.0.6+2
+## 1.0.6+3
 
-* Added responsive GridView widget
+* Text scale factor adjusted on small screen sized devices
