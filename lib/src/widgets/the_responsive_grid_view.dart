@@ -48,6 +48,9 @@ class TheResponsiveGridView extends StatelessWidget {
   final Widget Function(BuildContext, int)? itemBuilder;  
   // Function to build grid items
 
+  final ScrollController? controller;  
+  // The controller for the grid
+
   // Constructor for creating a ResponsiveGridView with a list of children
   const TheResponsiveGridView({
     super.key,
@@ -68,7 +71,7 @@ class TheResponsiveGridView extends StatelessWidget {
     this.dragStartBehavior = DragStartBehavior.start,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.restorationId,
-    this.clipBehavior = Clip.hardEdge,
+    this.clipBehavior = Clip.hardEdge, this.controller,
   }) : itemCount = null,
        itemBuilder = null;
 
@@ -93,7 +96,7 @@ class TheResponsiveGridView extends StatelessWidget {
     this.dragStartBehavior = DragStartBehavior.start,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.restorationId,
-    this.clipBehavior = Clip.hardEdge,
+    this.clipBehavior = Clip.hardEdge, this.controller,
   }) : children = null;
 
   @override
@@ -137,6 +140,7 @@ class TheResponsiveGridView extends StatelessWidget {
         if (itemBuilder != null) {
           // If an itemBuilder is provided, use GridView.builder
           return GridView.builder(
+            controller: controller,
             gridDelegate: gridDelegate,
             itemCount: itemCount,
             itemBuilder: itemBuilder!,
@@ -157,6 +161,7 @@ class TheResponsiveGridView extends StatelessWidget {
         } else {
           // Otherwise, use standard GridView with provided children
           return GridView(
+            controller: controller,
             gridDelegate: gridDelegate,
             padding: padding ?? EdgeInsets.all(actualSpacing),
             shrinkWrap: shrinkWrap,
