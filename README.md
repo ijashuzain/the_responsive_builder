@@ -1,3 +1,4 @@
+![Pub](https://img.shields.io/pub/v/the_responsive_builder.svg)
 # The Responsive Builder
 
 This package provides a set of utilities to aid in building responsive Flutter applications that adapt to different screen sizes and orientations.
